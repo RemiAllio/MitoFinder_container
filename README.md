@@ -149,7 +149,7 @@ MitoFinder_v1.4 -j [seqid] -s [SE_reads.fastq.gz] -r [genbank_reference.gb] -o [
 
 ## Mitochondrial genome annotation  
 
-### MitoFinder can also be run directly on a previously computed assembly (one or several contig.s in fasta format)
+MitoFinder can also be run directly on a previously computed assembly (one or several contig.s in fasta format)
 ```shell
 MitoFinder_v1.4 -j [seqid] -a [assembly.fasta] -r [genbank_reference.gb] -o [genetic_code] -p [threads] -m [memory]
 ```
