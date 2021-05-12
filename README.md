@@ -14,14 +14,14 @@ read sequencing data.
   
 # Requirements
 
-This container is suitable for all systems with Singularity version >= 3.0](https://sylabs.io/guides/3.0/user-guide/quick_start.html) installed.
+This container is suitable for all systems with [Singularity version >= 3.0](https://sylabs.io/guides/3.0/user-guide/quick_start.html) installed.
 
 # Table of content
 
 1. [Installation guide for MitoFinder](#installation-guide-for-mitofinder)
 	- [Get and install Singularity](#get-and-install-singularity)
 	- [Get MitoFinder's container](#get-mitofinders-container)
-2. [How to use MitoFinder's container](#how-to-use-mitofinder-s-container)
+2. [How to use MitoFinder's container](#how-to-use-mitofinders-container)
 	- [Mitochondrial genome assembly](#mitochondrial-genome-assembly)
 	- [Mitochondrial genome annotation](#mitochondrial-genome-annotation)
 	- [Test cases](#test-cases)
@@ -34,10 +34,11 @@ This container is suitable for all systems with Singularity version >= 3.0](http
 9. [How to get reference mitochondrial genomes from ncbi](#how-to-get-reference-mitochondrial-genomes-from-ncbi)
 10. [How to submit your annotated mitochondrial genome(s) to GenBank NCBI](#how-to-submit-your-annotated-mitochondrial-genomes-to-ncbi-genbank)
 
-#Installation guide for MitoFinder  
+# Installation guide for MitoFinder
+
 ## Get and install Singularity
 
-To run the container, you only need [Singularity version >= 3.0](https://sylabs.io/guides/3.0/user-guide/quick_start.html) to be installed in your sytem.
+To run the container, you just need to have [Singularity version >= 3.0](https://sylabs.io/guides/3.0/user-guide/quick_start.html) installed in your sytem.
 
 To check if a right version of Singularity is actually installed:  
 ```shell
