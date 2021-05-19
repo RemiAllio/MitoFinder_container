@@ -85,10 +85,10 @@ sudo make -C builddir install
 
 ## Get MitoFinder's container 
 
-Clone MitoFinder's container from [GitHub](https://github.com/RemiAllio/MitoFinder_container) #to update 
+Clone MitoFinder's container from [GitHub](https://github.com/RemiAllio/MitoFinder_container) 
   
 ```shell 
-git clone https://github.com/RemiAllio/MitoFinder_container.git #to update 
+git clone https://github.com/RemiAllio/MitoFinder_container.git
 cd MitoFinder_container
 ```
 
