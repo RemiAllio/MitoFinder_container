@@ -22,8 +22,9 @@ This container is suitable for all systems with [Singularity version >= 3.0](htt
 	- [Get and install Singularity](#get-and-install-singularity)
 	- [Get MitoFinder's container](#get-mitofinders-container)
 2. [How to use MitoFinder's container](#how-to-use-mitofinders-container)
-	- [Mitochondrial genome assembly](#mitochondrial-genome-assembly)
-	- [Mitochondrial genome annotation](#mitochondrial-genome-annotation)
+	- [Mitochondrial genome assembly and annotation](#mitochondrial-genome-assembly-and-annotation)
+	- [Find and/or annotate a mitochondrial genome](#find-andor-annotate-a-mitochondrial-genome)
+	- [Restart](#restart)
 	- [Test cases](#test-cases)
 3. [Detailed options](#detailed-options)
 4. [INPUT FILES](#input-files)
@@ -133,7 +134,7 @@ Second, you can choose the tool for the tRNA annotation step of MitoFinder using
 -t arwen	(ARWEN: faster)  
 -t trnascan	(tRNAscan-SE)  
 
-## Mitochondrial genome assembly  
+## Mitochondrial genome assembly and annotation 
 
 TIP: use MitoFinder_v1.4 --example to print basic usage examples  
 
@@ -147,14 +148,14 @@ MitoFinder_v1.4 -j [seqid] -1 [left_reads.fastq.gz] -2 [right_reads.fastq.gz] -r
 MitoFinder_v1.4 -j [seqid] -s [SE_reads.fastq.gz] -r [genbank_reference.gb] -o [genetic_code] -p [threads] -m [memory]
 ```
 
-## Mitochondrial genome annotation  
+## Find and/or annotate a mitochondrial genome  
 
 MitoFinder can also be run directly on a previously computed assembly (one or several contig.s in fasta format)
 ```shell
 MitoFinder_v1.4 -j [seqid] -a [assembly.fasta] -r [genbank_reference.gb] -o [genetic_code] -p [threads] -m [memory]
 ```
 
-### Restart
+## Restart
 Use the same command line.  
 **WARNING**: If you want to compute the assembly again (for example because it failed) you have to remove the assembly results' directory (--override option). If not, MitoFinder will skip the assembly step.  
 
