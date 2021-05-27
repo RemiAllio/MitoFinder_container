@@ -39,7 +39,7 @@ This container is suitable for all systems with [Singularity version >= 3.0](htt
 
 ## Get and install Singularity
 
-To run the container, you just need to have [Singularity version >= 3.0](https://sylabs.io/guides/3.0/user-guide/quick_start.html) installed in your sytem.
+To run the container, you just need to have [Singularity version >= 3.0](https://sylabs.io/guides/3.0/user-guide/quick_start.html) installed in your system.
 
 To check if a right version of Singularity is actually installed:  
 ```shell
@@ -91,13 +91,14 @@ singularity version
 ```
 
 ## Get MitoFinder's container 
-***WARNING:*** Given the large size of the Singularity container, we need to use the ```git-lfs clone``` command [described here](https://git-lfs.github.com/) instead of the usual ```git clone``` command.
+**WARNING:** Given the large size of the Singularity container, we need to use the ```git-lfs clone``` command [described here](https://git-lfs.github.com/) instead of the usual ```git clone``` command.
 To be able to run it without root privileges, we need to download it:
 
 ```shell 
 mkdir gitlfs && cd gitlfs
 wget https://github.com/git-lfs/git-lfs/releases/download/v2.13.2/git-lfs-linux-amd64-v2.13.2.tar.gz
 tar -xvf git-lfs-linux-amd64-v2.13.2.tar.gz
+git-lfs install
 echo "export PATH=\$PATH:$(pwd)" >> ~/.bashrc
 source ~/.bashrc
 cd ..
