@@ -84,12 +84,29 @@ make -C builddir
 sudo make -C builddir install
 ```
 
-## Get MitoFinder's container 
+Check singularity version:
 
-Clone MitoFinder's container from [GitHub](https://github.com/RemiAllio/MitoFinder_container) 
+```shell
+singularity version
+```
+
+## Get MitoFinder's container 
+***WARNING:*** Given the large size of the Singularity container, we need to use the ```git-lfs clone``` command [described here](https://git-lfs.github.com/) instead of the usual ```git clone``` command.
+To be able to run it without root privileges, we need to download it:
+
+```shell 
+mkdir gitlfs && cd gitlfs
+wget https://github.com/git-lfs/git-lfs/releases/download/v2.13.2/git-lfs-linux-amd64-v2.13.2.tar.gz
+tar -xvf git-lfs-linux-amd64-v2.13.2.tar.gz
+echo "export PATH=\$PATH:$(pwd)" >> ~/.bashrc
+source ~/.bashrc
+cd ..
+```
+
+Then, clone MitoFinder's container from [GitHub](https://github.com/RemiAllio/MitoFinder_container) 
   
 ```shell 
-git clone https://github.com/RemiAllio/MitoFinder_container.git
+git-lfs clone https://github.com/RemiAllio/MitoFinder_container.git
 cd MitoFinder_container
 ```
 
