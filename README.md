@@ -92,6 +92,7 @@ singularity version
 
 ## Get MitoFinder's container 
 
+The singularity container is available [here](https://cloud.sylabs.io/library/_container/61557b8a7163109769dfaf38).
 Since you have [Singularity version >= 3.0](https://sylabs.io/guides/3.0/user-guide/quick_start.html) installed, you can clone MitoFinder's container directly using singularity with the following command:
 
 ```shell 
