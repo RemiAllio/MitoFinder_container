@@ -1,4 +1,4 @@
-# Singularity container for MitoFinder version 1.4		
+# Singularity container for MitoFinder		
 Allio, R., Schomaker-Bastos, A., Romiguier, J., Prosdocimi, F., Nabholz, B., & Delsuc, F. (2020) Mol Ecol Resour. 20, 892-905. ([publication link](https://doi.org/10.1111/1755-0998.13160))
 
 <p align="center">
@@ -403,6 +403,8 @@ For UCEs extraction:
 
 # HOW TO GET REFERENCE MITOCHONDRIAL GENOMES FROM NCBI  
 
+## Using the NCBI web interface
+
 1. Go to [NCBI](https://www.ncbi.nlm.nih.gov/)  
 2. Select "Nucleotide" in the search bar  
 3. Search for mitochondrion genomes:  
@@ -410,8 +412,18 @@ For UCEs extraction:
 - [x] Sequence length from 12000 to 20000  
 4. Download complete record in GenBank format  
 
+Depending on the proximity of your reference, you can play with the following parameters : nWalk; --blast-eval; --blast-identity-nucl; --blast-identity-prot; --blast-size 
+
 ![](/image/NCBI.png)
 
+## Using entrez-direct utilities
+
+1. Install entrez-direct utilities (instructions [here](https://www.ncbi.nlm.nih.gov/books/NBK179288/), or using `conda -c bioconda entrez-direct`)
+2. Use the following in a shell to batch download all mitochondrial genomes associated with Carnivora:
+```sh
+taxa=Carnivora 
+esearch -db nuccore -query "\"mitochondrion\"[All Fields] AND (\"${taxa}\"[Organism]) AND (refseq[filter] AND mitochondrion[filter] AND (\"12000\"[SLEN] : \"20000\"[SLEN]))" | efetch -format gbwithparts > reference.gb
+```
 
 # How to submit your annotated mitochondrial genome(s) to NCBI GenBank   
 
