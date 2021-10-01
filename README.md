@@ -125,7 +125,7 @@ source ~/.bashrc
 
 To check if the right version of MitoFinder is actually in your PATH:  
 ```shell
-MitoFinder_v1.4 -v
+mitofinder_v1.4.1.sif -v
 ```
   
 # How to use MitoFinder's container
@@ -148,19 +148,19 @@ TIP: use MitoFinder_v1.4 --example to print basic usage examples
 
 ### Trimmed paired-end reads
 ```shell
-MitoFinder_v1.4 -j [seqid] -1 [left_reads.fastq.gz] -2 [right_reads.fastq.gz] -r [genbank_reference.gb] -o [genetic_code] -p [threads] -m [memory]   
+mitofinder_v1.4.1.sif -j [seqid] -1 [left_reads.fastq.gz] -2 [right_reads.fastq.gz] -r [genbank_reference.gb] -o [genetic_code] -p [threads] -m [memory]   
 ```
 
 ### Trimmed single-end reads
 ```shell
-MitoFinder_v1.4 -j [seqid] -s [SE_reads.fastq.gz] -r [genbank_reference.gb] -o [genetic_code] -p [threads] -m [memory]
+mitofinder_v1.4.1.sif -j [seqid] -s [SE_reads.fastq.gz] -r [genbank_reference.gb] -o [genetic_code] -p [threads] -m [memory]
 ```
 
 ## Find and/or annotate a mitochondrial genome  
 
 MitoFinder can also be run directly on a previously computed assembly (one or several contig.s in fasta format)
 ```shell
-MitoFinder_v1.4 -j [seqid] -a [assembly.fasta] -r [genbank_reference.gb] -o [genetic_code] -p [threads] -m [memory]
+mitofinder_v1.4.1.sif -j [seqid] -a [assembly.fasta] -r [genbank_reference.gb] -o [genetic_code] -p [threads] -m [memory]
 ```
 
 ## Restart
@@ -175,27 +175,27 @@ Depending on the proximity of your reference, you can play with the following pa
 If you want to run a test with assembly and annotation steps:    
 ```shell
 cd PATH/TO/MITOFINDER_CONTAINER/test_case/
-../MitoFinder_v1.4 -j Aphaenogaster_megommata_SRR1303315 -1 Aphaenogaster_megommata_SRR1303315_R1_cleaned.fastq.gz -2 Aphaenogaster_megommata_SRR1303315_R2_cleaned.fastq.gz -r reference.gb -o 5 -p 5 -m 10   
+../mitofinder_v1.4.1.sif -j Aphaenogaster_megommata_SRR1303315 -1 Aphaenogaster_megommata_SRR1303315_R1_cleaned.fastq.gz -2 Aphaenogaster_megommata_SRR1303315_R2_cleaned.fastq.gz -r reference.gb -o 5 -p 5 -m 10   
 ```  
   
 If you want to run a test with only the annotation step:  
 ```shell
 cd PATH/TO/MITOFINDER_CONTAINER/test_case/
-../MitoFinder_v1.4 -j Hospitalitermes_medioflavus_NCBI -a Hospitalitermes_medioflavus_NCBI.fasta -r Hospitalitermes_medioflavus_NCBI.gb -o 5
+../mitofinder_v1.4.1.sif -j Hospitalitermes_medioflavus_NCBI -a Hospitalitermes_medioflavus_NCBI.fasta -r Hospitalitermes_medioflavus_NCBI.gb -o 5
 ```  
     
 # Detailed options  
   
 ```shell
-usage: MitoFinder_v1.4 [-h] [--megahit] [--idba] [--metaspades] [-t TRNAANNOTATION]
-                  [-j PROCESSNAME] [-1 PE1] [-2 PE2] [-s SE] [-a ASSEMBLY]
-                  [-m MEM] [-l SHORTESTCONTIG] [-p PROCESSORSTOUSE]
-                  [-r REFSEQFILE] [-e BLASTEVAL] [-n NWALK] [--override]
-                  [--adjust-direction] [--ignore] [--new-genes]
-                  [--allow-intron] [--numt] [--intron-size INTRONSIZE]
-                  [--max-contig MAXCONTIG] [--cds-merge] [--out-gb]
-                  [--contig-size-min CONTIGSIZEMIN]
-                  [--contig-size-max CONTIGSIZEMAX] [--rename-contig RENAME]
+usage: mitofinder_v1.4.1.sif [-h] [--megahit] [--idba] [--metaspades] [-t TRNAANNOTATION]
+                  [-j PROCESSNAME] [-1 PE1] [-2 PE2] [-s SE] [-c CONFIG]
+                  [-a ASSEMBLY] [-m MEM] [-l SHORTESTCONTIG]
+                  [-p PROCESSORSTOUSE] [-r REFSEQFILE] [-e BLASTEVAL]
+                  [-n NWALK] [--override] [--adjust-direction] [--ignore]
+                  [--new-genes] [--allow-intron] [--numt]
+                  [--intron-size INTRONSIZE] [--max-contig MAXCONTIG]
+                  [--cds-merge] [--out-gb] [--min-contig-size MINCONTIGSIZE]
+                  [--max-contig-size MAXCONTIGSIZE] [--rename-contig RENAME]
                   [--blast-identity-nucl BLASTIDENTITYNUCL]
                   [--blast-identity-prot BLASTIDENTITYPROT]
                   [--blast-size ALIGNCUTOFF] [--circular-size CIRCULARSIZE]
@@ -221,6 +221,9 @@ optional arguments:
                         File with reverse paired-end reads
   -s SE, --Single-end SE
                         File with single-end reads
+  -c CONFIG, --config CONFIG
+                        Use this option to specify another Mitofinder.config
+                        file.
   -a ASSEMBLY, --assembly ASSEMBLY
                         File with your own assembly
   -m MEM, --max-memory MEM
@@ -268,10 +271,10 @@ optional arguments:
                         the NT and AA fasta files.
   --out-gb              Do not create annotation output file in GenBank
                         format.
-  --contig-size-min CONTIGSIZEMIN
+  --min-contig-size MINCONTIGSIZE
                         Minimum size of a contig to be considered. Default =
                         1000
-  --contig-size-max CONTIGSIZEMAX
+  --max-contig-size MAXCONTIGSIZE
                         Maximum size of a contig to be considered. Default =
                         25000
   --rename-contig RENAME
@@ -311,7 +314,7 @@ optional arguments:
                         Mitochondrial Code 24. Pterobranchia Mitochondrial
                         Code 25. Candidate Division SR1 and Gracilibacteria
                         Code
-  -v, --version         Version 1.4
+  -v, --version         Version 1.4.1
   --example             Print getting started examples
   --citation            How to cite MitoFinder
 ```
