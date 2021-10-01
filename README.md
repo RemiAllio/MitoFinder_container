@@ -91,34 +91,23 @@ singularity version
 ```
 
 ## Get MitoFinder's container 
-**WARNING:** Given the large size of the Singularity container, we need to use the ```git-lfs clone``` command [described here](https://git-lfs.github.com/) instead of the usual ```git clone``` command.
-To be able to run it without root privileges, we need to download it:
+
+Since you have [Singularity version >= 3.0](https://sylabs.io/guides/3.0/user-guide/quick_start.html) installed, you can clone MitoFinder's container directly using singularity with the following command:
 
 ```shell 
-mkdir gitlfs && cd gitlfs
-wget https://github.com/git-lfs/git-lfs/releases/download/v2.13.2/git-lfs-linux-amd64-v2.13.2.tar.gz
-tar -xvf git-lfs-linux-amd64-v2.13.2.tar.gz
-git-lfs install
-echo "export PATH=\$PATH:$(pwd)" >> ~/.bashrc
-source ~/.bashrc
-cd ..
+singularity pull --arch amd64 library://remiallio/default/mitofinder:v1.4.1 
 ```
 
-Then, clone MitoFinder's container from [GitHub](https://github.com/RemiAllio/MitoFinder_container) 
-  
-```shell 
-git-lfs clone https://github.com/RemiAllio/MitoFinder_container.git
-cd MitoFinder_container
+and then run it as follows:
+
+```shell
+singularity run mitofinder_v1.4.1.sif -h  
 ```
 
-Then, MitoFinder can be run as follows:
+or:
 
-```shell 
-singularity run PATH/TO/MITOFINDER/MitoFinder_v1.4 -h  
-```
-or
-```shell 
-PATH/TO/MITOFINDER/MitoFinder_v1.4 -h  
+```shell
+mitofinder_v1.4.1.sif -h  
 ```
 
 ### Add MitoFinder's container to your path
