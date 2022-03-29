@@ -56,7 +56,11 @@ sudo apt-get update && sudo apt-get install -y \
     libssl-dev \
     uuid-dev \
     libgpgme11-dev \
-    squashfs-tools
+    squashfs-tools \
+    libseccomp-dev \
+    wget \
+    pkg-config \
+    git
 ```
 
 Go (v>=1.13):
@@ -75,13 +79,10 @@ source ~/.bashrc
 Get and install singularity:
 
 ```shell
-mkdir -p $GOPATH/src/github.com/sylabs
-cd $GOPATH/src/github.com/sylabs
-git clone https://github.com/sylabs/singularity.git && cd singularity
-go get -u -v github.com/golang/dep/cmd/dep
-./mconfig
-make -C builddir
-sudo make -C builddir install
+export VERSION=3.3.0 && # adjust this as necessary \
+wget https://github.com/sylabs/singularity/releases/download/v${VERSION}/singularity-${VERSION}.tar.gz && \
+tar -xzf singularity-${VERSION}.tar.gz && \
+cd singularity
 ```
 
 Check singularity version:
