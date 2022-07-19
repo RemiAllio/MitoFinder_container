@@ -79,9 +79,9 @@ source ~/.bashrc
 Get and install singularity:
 
 ```shell
-export VERSION=3.3.0 && # adjust this as necessary \
-wget https://github.com/sylabs/singularity/releases/download/v${VERSION}/singularity-${VERSION}.tar.gz && \
-tar -xzf singularity-${VERSION}.tar.gz && \
+export VERSION=3.10.1 && # adjust this as necessary \
+wget https://github.com/sylabs/singularity/releases/download/v${VERSION}/singularity-ce-${VERSION}.tar.gz && \
+tar -xzf singularity-ce-${VERSION}.tar.gz && \
 cd singularity
 ```
 
