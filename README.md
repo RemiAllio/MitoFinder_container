@@ -66,7 +66,7 @@ sudo apt-get update && sudo apt-get install -y \
 Go (v>=1.13):
 
 ```shell
-export VERSION=1.13 OS=linux ARCH=amd64
+export VERSION=1.17 OS=linux ARCH=amd64
 cd /tmp
 wget https://dl.google.com/go/go$VERSION.$OS-$ARCH.tar.gz
 
@@ -82,7 +82,9 @@ Get and install singularity:
 export VERSION=3.10.1 && # adjust this as necessary \
 wget https://github.com/sylabs/singularity/releases/download/v${VERSION}/singularity-ce-${VERSION}.tar.gz && \
 tar -xzf singularity-ce-${VERSION}.tar.gz && \
-cd singularity
+cd singularity-ce-3.10.1 && ./mconfig
+cd builddir && make
+sudo make install
 ```
 
 Check singularity version:
